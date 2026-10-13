@@ -1,0 +1,10 @@
+chat
+chien
+arbre
+fleur
+maison
+soleil
+montagne
+livre
+ciel
+mer
