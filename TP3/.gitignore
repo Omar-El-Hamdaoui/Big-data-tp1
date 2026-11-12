@@ -1,7 +1,10 @@
 /.venv/
 /data/
-/logs/
+/artifacts/
 /reports/
+/example_*_request.json
+/spark-warehouse/
+/metastore_db/
 /**/__pycache__/
 /.ipynb_checkpoints/
 *.pyc

@@ -1,53 +1,49 @@
 # TP3 — Data Science et Big Data
 
-Le dépôt garde les deux notebooks exécutés, leur code partagé, les API locales et les modèles nécessaires à leur démarrage. Les graphiques et résultats sont déjà visibles dans les notebooks.
+Ce dossier contient les deux notebooks exécutés. Ils incluent leur code, les graphiques et les sorties affichées. Les fonctions nécessaires sont directement dans chaque notebook : aucun dossier de code auxiliaire n'est requis.
 
-## Contenu
+## Small data
 
-- `TP3_Partie_1_Films.ipynb` : analyse et estimation de notes de films avec pandas et scikit-learn.
-- `TP3_Partie_2_US_Accidents_Spark.ipynb` : traitement HDFS/Spark et classification de la sévérité des accidents.
-- `tp3/` : fonctions utilisées par les notebooks et les API.
-- `api/` : deux API FastAPI et leurs requêtes d’exemple.
-- `artifacts/` : modèles entraînés, nécessaires aux API pour démarrer sans réentraînement.
-- `requirements.txt` : dépendances Python.
+`trending-movies-analysis-up-to-2026_small_data.ipynb` analyse le jeu de films avec pandas et scikit-learn.
 
-Les fichiers de résultats et les images exportées séparément ne sont pas versionnés : les sorties et figures sont intégrées aux notebooks. Les données Kaggle ne sont pas incluses.
+## Big data
 
-## Installation et notebooks
+`us-accidents_big_data.ipynb` traite les accidents avec Hadoop/HDFS et Spark, puis classe leur sévérité.
 
-Python 3.12 et Java 21 sont utilisés. Hadoop/HDFS doit être installé et configuré pour la partie Spark.
+## Exécution
+
+Python 3.12 et Java 21 sont utilisés. Installer les dépendances dans un environnement Python :
 
 ```bash
 python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m pip install numpy==2.5.4 pandas==2.3.3 scipy==1.18.1 scikit-learn==1.7.2 matplotlib==3.11.2 seaborn==0.13.2 joblib==1.6.0 pyspark==4.2.0 kagglehub==1.0.3 ipykernel==7.4.0 fastapi==0.162.5 uvicorn==0.54.0 httpx==0.28.1
 .venv/bin/python -m ipykernel install --user --name tp3 --display-name 'Python (TP3)'
 ```
 
-Ouvrir les notebooks dans Jupyter ou VS Code et sélectionner le noyau **Python (TP3)**. Au premier lancement, KaggleHub télécharge les jeux de données; un compte Kaggle configuré peut être nécessaire. La partie accidents nécessite HDFS actif avant l’exécution du notebook :
+Ouvrir le notebook voulu dans Jupyter ou VS Code et choisir le noyau **Python (TP3)**. Au premier lancement, KaggleHub télécharge le dataset; une authentification Kaggle peut être demandée.
+
+La partie accidents nécessite Hadoop/HDFS configuré et démarré avant l'exécution. Avec une installation locale :
 
 ```bash
-bash scripts/start_hdfs.sh
+hdfs --daemon start namenode
+hdfs --daemon start datanode
+hdfs dfsadmin -safemode wait
 ```
 
-Le mode Spark est local (`local[2]`) et le notebook écrit les données préparées dans HDFS. Le chemin par défaut est `/user/omar/tp3_us_accidents_v13`; l’adapter si l’utilisateur HDFS est différent. Ne pas reformater un NameNode existant.
+Le notebook utilise Spark en mode local (`local[2]`) et écrit ses fichiers temporaires sous `data/` et dans HDFS. Le chemin HDFS par défaut est `/user/omar/tp3_us_accidents_v13`; l'adapter si nécessaire. Ne pas reformater un NameNode existant.
 
-## API locales
+## API locale
 
-Depuis le dossier `TP3`, lancer chaque service dans son propre terminal :
+Chaque notebook définit et vérifie sa propre API FastAPI à la fin. Après l'exécution de ses cellules, démarrer le serveur dans une nouvelle cellule avec :
 
-```bash
-bash scripts/start_api.sh films
-bash scripts/start_api.sh accidents
+```python
+import uvicorn
+uvicorn.run(app, host="127.0.0.1", port=8001)  # films
 ```
 
-| API | Documentation | Santé |
-|---|---|---|
-| Films | `http://127.0.0.1:8001/docs` | `http://127.0.0.1:8001/health` |
-| Accidents | `http://127.0.0.1:8002/docs` | `http://127.0.0.1:8002/health` |
+Pour l'API accidents, utiliser le port `8002`. La documentation interactive sera disponible sur `http://127.0.0.1:8001/docs` ou `http://127.0.0.1:8002/docs`. Les modèles sont créés localement en exécutant les notebooks et ne sont pas stockés sur GitHub.
 
-Les modèles `artifacts/` sont conservés pour que les API fonctionnent après clonage, sans exécuter l’entraînement complet. Les données brutes, environnements virtuels et résultats temporaires restent locaux.
-
-## Sources des données
+## Sources
 
 - [Trending Movies Analysis up to 2026](https://www.kaggle.com/datasets/sahilk22/trending-movies-analysis-up-to-2026)
 - [US Accidents](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents) — licence CC BY-NC-SA 4.0, usage académique.
