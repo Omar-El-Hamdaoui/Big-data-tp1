@@ -1,0 +1,11 @@
+{
+  "ref": "sobhanmoosavi/us-accidents",
+  "version": 13,
+  "file": "US_Accidents_March23.csv",
+  "folder": "accidents",
+  "bytes": 3058183727,
+  "sha256": "e3e9f962e3e2289db1bdce91623abbcf9ba4d7bfc1adb091c8aeee6c2639d204",
+  "local_path": "data/raw/accidents/US_Accidents_March23.csv.gz",
+  "stored_bytes": 834729829,
+  "compression": "gzip"
+}

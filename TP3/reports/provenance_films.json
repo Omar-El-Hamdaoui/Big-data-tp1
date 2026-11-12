@@ -1,0 +1,11 @@
+{
+  "ref": "sahilk22/trending-movies-analysis-up-to-2026",
+  "version": 1,
+  "file": "Treanding_movies.csv",
+  "folder": "movies",
+  "bytes": 3471451,
+  "sha256": "c0f4a142a9f6d17f975b861e098620ddd8165916c2fc5bf63da1b2f286213b7c",
+  "local_path": "data/raw/movies/Treanding_movies.csv",
+  "stored_bytes": 3471451,
+  "compression": "none"
+}

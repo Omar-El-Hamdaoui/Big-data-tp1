@@ -1,0 +1,13 @@
+{
+  "raw_rows": 7728394,
+  "eligible_rows": 7728394,
+  "id_audit": {
+    "rows": 7728394,
+    "unique_ids": 7728394,
+    "missing_ids": 0
+  },
+  "weather": {
+    "weather_after_start": 3787674,
+    "weather_masked": 3933101
+  }
+}

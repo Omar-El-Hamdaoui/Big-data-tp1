@@ -1,0 +1,15 @@
+{
+  "health": {
+    "status": "ok",
+    "model": "Ridge TF-IDF alpha=10",
+    "task": "regression"
+  },
+  "prediction": {
+    "model": "Ridge TF-IDF alpha=10",
+    "predictions": [
+      {
+        "estimated_rating": 6.9422
+      }
+    ]
+  }
+}

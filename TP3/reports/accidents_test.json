@@ -1,0 +1,20 @@
+{
+  "model": "Régression logistique — pondération modérée",
+  "test": {
+    "macro_f1": 0.2749163989308466,
+    "accuracy": 0.8199244929905902,
+    "balanced_accuracy": 0.30541165560984634,
+    "weighted_f1": 0.8353006303624841,
+    "n": 2009085
+  },
+  "baseline_test": {
+    "macro_f1": 0.2392155457822852,
+    "accuracy": 0.9172922001806793,
+    "balanced_accuracy": 0.25,
+    "weighted_f1": 0.8777222172322175,
+    "n": 2009085
+  },
+  "fit_rows": 285995,
+  "fit_seconds": 10.61617608499364,
+  "train_fraction": 0.05
+}
