@@ -1,5 +1,14 @@
 # Fichiers de test WordCount trop volumineux pour GitHub
-TP 1/donnees_comptage/mots_1000_x_10000.txt
-TP 1/donnees_comptage/mots_1000_x_100000.txt
-# TP3 est désormais dans deux dépôts dédiés.
+TP1/donnees_comptage/mots_1000_x_10000.txt
+TP1/donnees_comptage/mots_1000_x_100000.txt
+# Anciens fichiers locaux du TP3, hors du rendu.
 TP3/
+TP 3/
+# Données et modèles régénérés par les notebooks du TP3.
+TP3_ID*/Small/data/
+TP3_ID*/Small/reports/
+TP3_ID*/Small/artifacts/
+TP3_ID*/Big/data/
+TP3_ID*/Big/reports/
+TP3_ID*/Big/artifacts/
+**/.ipynb_checkpoints/
