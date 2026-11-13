@@ -1,8 +1,0 @@
-[submodule "TP 3/Big-data-tp3-small"]
-	path = TP 3/Big-data-tp3-small
-	url = https://github.com/Omar-El-Hamdaoui/Big-data-tp3-small.git
-	branch = main
-[submodule "TP 3/Big-data-tp3-big"]
-	path = TP 3/Big-data-tp3-big
-	url = https://github.com/Omar-El-Hamdaoui/Big-data-tp3-big.git
-	branch = main

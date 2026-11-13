@@ -11,4 +11,7 @@ TP3_ID*/Small/artifacts/
 TP3_ID*/Big/data/
 TP3_ID*/Big/reports/
 TP3_ID*/Big/artifacts/
+TP3_ID*/**/example_*_request.json
+TP3_ID*/**/.venv/
+TP3_ID*/**/__pycache__/
 **/.ipynb_checkpoints/
